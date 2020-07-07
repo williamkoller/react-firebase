@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import { MuiThemeProvider } from 'material-ui/styles/index'
+import { AppBar, Toolbar, Typography } from 'material-ui/core'
+import { createMuiTheme } from 'material-ui/styles'
+import red from 'material-ui/colors/red'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const theme = createMuiTheme({
+	palette: {
+		primary: red,
+	},
+})
+
+class App extends Component {
+	render() {
+		return (
+			<MuiThemeProvider theme={theme}>
+				<React.Fragment>
+					<AppBar position='static'>
+						<Toolbar>
+							<Typography type='title' color='inherit'>
+								My Awesome React App
+							</Typography>
+						</Toolbar>
+					</AppBar>
+				</React.Fragment>
+			</MuiThemeProvider>
+		)
+	}
 }
 
-export default App;
+export default App
